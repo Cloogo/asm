@@ -64,6 +64,15 @@ _start:
     sub $2,%rdi
     cmpsl
 
+#repz cmps
+    cld
+    lea msg,%rsi
+    lea nickname,%rdi
+
+    mov $len,%rcx
+    xor %ax,%ax
+    repz cmpsb
+
 #exit program
     mov $60,%rax
     syscall
